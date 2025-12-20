@@ -1,13 +1,17 @@
 {
   "name": "cfa-sql-run-worker-nbbaier",
-  "main": "src/index.ts",
+  "main": "src/index.tsx",
   "compatibility_date": "2025-12-17",
   "compatibility_flags": [],
+  "assets": {
+    "directory": "src/assets",
+    "binding": "ASSETS"
+  },
   "kv_namespaces": [
     {
       "binding": "KV",
-      "id": "dcd1bb20cde6430dbc74d0a400356d59",
-      "preview_id": "dcd1bb20cde6430dbc74d0a400356d59"
+      "id": "kv",
+      "preview_id": "kv"
     }
   ],
   "durable_objects": {
