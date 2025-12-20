@@ -1,9 +1,9 @@
 import { isInboundWebhook } from "@inboundemail/sdk";
 import { Hono } from "hono";
 import { validator } from "hono/validator";
-import { extractSqlBlocks, hasSqlBlock } from "./parse-sql";
+import { extractSqlBlocks, hasSqlBlock } from "./lib/sql";
 
-export const webhook = new Hono<{ Bindings: Env }>();
+const webhook = new Hono<{ Bindings: Env }>();
 
 webhook.post(
 	"/",
@@ -45,3 +45,5 @@ webhook.post(
 		});
 	},
 );
+
+export default webhook;

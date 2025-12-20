@@ -1,8 +1,8 @@
 import { DurableObject } from "cloudflare:workers";
 import { Inbound } from "inboundemail";
 import { nanoid } from "nanoid";
-import type { SqlBlock } from "../types";
-import { formatResultsToHtml } from "./format-email";
+import { formatResultsToHtml } from "./lib/format-email";
+import type { SqlBlock } from "./lib/sql";
 
 export class SqlRunDO extends DurableObject {
 	sql: SqlStorage;
@@ -10,27 +10,11 @@ export class SqlRunDO extends DurableObject {
 	constructor(ctx: DurableObjectState, env: Env) {
 		super(ctx, env);
 		this.sql = ctx.storage.sql;
-		console.log("[SqlRunDO] Initializing DO, running schema setup");
-		try {
-			this.sql.exec(`
-				drop table if exists sql_run;
-				create table if not exists kv (
-					key TEXT PRIMARY KEY,
-					value TEXT
-				);
-			`);
-			console.log("[SqlRunDO] Schema setup complete");
-		} catch (error) {
-			console.error("[SqlRunDO] Schema setup failed:", error);
-			throw error;
-		}
 	}
 
 	runSql(sql: string) {
-		console.log("[SqlRunDO] Executing SQL:", sql);
 		try {
 			const result = this.sql.exec(sql).toArray();
-			console.log("[SqlRunDO] SQL success, rows returned:", result.length);
 			return result;
 		} catch (error) {
 			console.error("[SqlRunDO] SQL execution failed:", error);
@@ -55,9 +39,7 @@ export class SqlRunDO extends DurableObject {
 		return { message: "SQL reset", remainingTables };
 	}
 
-	selectTables() {
-		return this.sql.exec(`PRAGMA table_list`).toArray();
-	}
+	selectTables = () => this.sql.exec(`PRAGMA table_list`).toArray();
 
 	async fetch(request: Request): Promise<Response> {
 		const { method } = request;

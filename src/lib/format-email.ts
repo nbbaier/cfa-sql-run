@@ -1,4 +1,4 @@
-export type QueryResult = {
+type QueryResult = {
 	index: number;
 	query: string;
 	result: Record<string, unknown>[];

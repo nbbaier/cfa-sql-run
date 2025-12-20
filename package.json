@@ -9,18 +9,19 @@
 		"postinstall": "vibe-rules install amp"
 	},
 	"dependencies": {
-		"@hono/zod-validator": "^0.7.6",
 		"@inboundemail/sdk": "^4.4.0",
+		"cloudflare": "^5.2.0",
 		"hono": "^4.9.2",
 		"inboundemail": "^0.19.0",
 		"nanoid": "^5.1.6",
-		"sql-formatter": "^15.6.12",
-		"zod": "^4.2.1"
+		"sql-formatter": "^15.6.12"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250820.0",
+		"@biomejs/biome": "2.3.10",
+		"@cloudflare/workers-types": "^4.20251220.0",
 		"@types/node": "^24.3.0",
 		"alchemy": "0.82.0",
+		"typescript": "^5.9.3",
 		"vibe-rules": "^0.3.91"
 	}
 }

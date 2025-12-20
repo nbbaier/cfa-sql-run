@@ -1,4 +1,11 @@
-import type { SqlBlock } from "../types";
+import { format } from "sql-formatter";
+
+export interface SqlBlock {
+	content: string;
+	fullMatch: string;
+	startIndex: number;
+	endIndex: number;
+}
 
 export const hasSqlBlock = (text: string) => {
 	const pattern = /<sql>(.*?)<\/sql>/gs;
@@ -14,4 +21,11 @@ export function extractSqlBlocks(text: string): SqlBlock[] {
 		startIndex: match.index,
 		endIndex: match.index + match[0].length,
 	}));
+}
+
+export function formatSql(sql: string): string {
+	return format(sql, {
+		language: "sqlite",
+		expressionWidth: 80,
+	});
 }
