@@ -20,7 +20,7 @@ const durableObject = DurableObjectNamespace<SqlRunDO>("durableObject", {
 });
 
 export const worker = await Worker("worker", {
-	entrypoint: "src/index.tsx",
+	entrypoint: "src/index.ts",
 	domains: ["sql.nicobaier.com"],
 	bindings: {
 		KV: kv,

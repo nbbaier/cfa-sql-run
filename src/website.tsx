@@ -27,14 +27,14 @@ const Example: FC<{
 		<div class="rounded border border-black custom-box-shadow px-4 pb-4 pt-3 bg-white">
 			<div class="mb-4">
 				<div class="flex items-center justify-between mb-1">
-					<h3 class="font-medium">{props.title}</h3>
+					<h3 class="text-base font-medium">{props.title}</h3>
 					<a class="text-blue-600 text-sm hover:underline" href={mailtoUrl}>
 						compose
 					</a>
 				</div>
-				<p class="text-neutral-600 text-xs">{props.description}</p>
+				<p class="text-neutral-600 text-sm">{props.description}</p>
 			</div>
-			<pre class="text-[11px] leading-5 bg-neutral-50 p-3 rounded border border-neutral-200 overflow-x-auto geist-mono">
+			<pre class="text-[11.25px] leading-5 bg-neutral-50 p-3 rounded border border-neutral-200 overflow-x-auto geist-mono">
 				<code>
 					{"<sql>\n"}
 					{`${formatSql(props.sql.trim())}`}
@@ -79,6 +79,7 @@ website.get("/", (c) => {
 				<meta charset="UTF-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<script src="https://cdn.tailwindcss.com"></script>
+				<title>SQLite over email</title>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
 				<link
@@ -105,7 +106,7 @@ website.get("/", (c) => {
 							{" "}
 							<section class="flex flex-col">
 								<h2 class="text-lg font-medium mb-1">What is this?</h2>
-								<div class="text-sm leading-[1.75] text-neutral-600">
+								<div class="text-base leading-[1.75] text-neutral-600">
 									An experiment based on{" "}
 									<a
 										href="https://sqlmail.dev"
@@ -139,7 +140,7 @@ website.get("/", (c) => {
 							</section>
 							<section class="flex flex-col">
 								<h2 class="text-lg font-medium mb-1">What can I do?</h2>
-								<div class="text-sm leading-[1.75] text-neutral-600">
+								<div class="text-base leading-[1.75] text-neutral-600">
 									Anything you can do with SQLite, you can do here! I wouldn't
 									put anything sensitive or crucial, but it's a fun way to
 									experiment with SQLite. Here are some quick examples.

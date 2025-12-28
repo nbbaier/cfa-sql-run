@@ -26,6 +26,8 @@ export function extractSqlBlocks(text: string): SqlBlock[] {
 export function formatSql(sql: string): string {
 	return format(sql, {
 		language: "sqlite",
-		expressionWidth: 80,
+		indentStyle: "standard",
+		useTabs: false,
+		denseOperators: true,
 	});
 }

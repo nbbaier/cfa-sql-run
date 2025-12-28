@@ -25,4 +25,5 @@ app.get("/health", (c) => {
 showRoutes(app, {
 	verbose: true,
 });
+
 export default { fetch: app.fetch };
