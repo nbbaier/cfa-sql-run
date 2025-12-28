@@ -164,7 +164,7 @@ website.get("/", (c) => {
 								<div class="text-sm text-neutral-600">© 2025 Nico Baier</div>
 								<a
 									class="text-blue-600 text-sm hover:underline"
-									href="https://github.com/nicobaier/cfa-sql-run"
+									href="https://github.com/nbbaier/cfa-sql-run"
 								>
 									github
 								</a>
