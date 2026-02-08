@@ -6,8 +6,8 @@
   "kv_namespaces": [
     {
       "binding": "KV",
-      "id": "dcd1bb20cde6430dbc74d0a400356d59",
-      "preview_id": "dcd1bb20cde6430dbc74d0a400356d59"
+      "id": "kv",
+      "preview_id": "kv"
     }
   ],
   "durable_objects": {

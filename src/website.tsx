@@ -104,7 +104,6 @@ website.get("/", (c) => {
 							</h1>
 						</div>
 						<div class="flex flex-col gap-8">
-							{" "}
 							<section class="flex flex-col">
 								<h2 class="text-lg font-medium mb-1">What is this?</h2>
 								<div class="text-sm leading-[1.75] text-neutral-600">
@@ -161,7 +160,15 @@ website.get("/", (c) => {
 						<div class="flex flex-col pt-4">
 							<div class="w-full border-t border-neutral-300 mb-4"></div>
 							<div class="flex items-center justify-between">
-								<div class="text-sm text-neutral-600">© 2025 Nico Baier</div>
+								<div class="text-sm text-neutral-600">
+									Made by{" "}
+									<a
+										class="text-blue-600 text-sm hover:underline"
+										href="https://nicobaier.com"
+									>
+										Nico Baier
+									</a>
+								</div>
 								<a
 									class="text-blue-600 text-sm hover:underline"
 									href="https://github.com/nbbaier/cfa-sql-run"
