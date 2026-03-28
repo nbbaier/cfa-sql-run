@@ -78,9 +78,10 @@ website.get("/", (c) => {
 			<head>
 				<meta charset="UTF-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-				<script src="https://cdn.tailwindcss.com"></script>
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+				<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" />
+
+				<link href="https://fonts.googleapis.com" rel="preconnect" />
+				<link crossOrigin href="https://fonts.gstatic.com" rel="preconnect" />
 				<link
 					href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap"
 					rel="stylesheet"
@@ -88,16 +89,28 @@ website.get("/", (c) => {
 				<style
 					dangerouslySetInnerHTML={{
 						__html: `
-      .geist-regular { font-family: "Geist", sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; }
-   .geist-mono { font-family: "Geist Mono", monospace; font-optical-sizing: auto; font-weight: 400; font-style: normal; }
-   .custom-box-shadow { box-shadow: 3.5px 3.5px 0px 0px #dddddd; }
+   html { font-size: 16px; }
+   .custom-box-shadow { box-shadow: 3.25px 3.25px 0px 0px rgb(221, 221, 221); }
+   .custom-box-shadow:hover { box-shadow: 3.25px 3.25px 0px 0px rgb(212, 212, 212); }
    `,
 					}}
 				/>
+				<style
+					dangerouslySetInnerHTML={{
+						__html: `
+   @theme {
+     --font-sans: "Geist", sans-serif;
+     --font-mono: "Geist Mono", monospace;
+   }
+   `,
+					}}
+					// @ts-expect-error - Tailwind CSS is a valid CSS type
+					type={"text/tailwindcss"}
+				/>
 			</head>
-			<body>
-				<div class="geist-regular min-h-screen px-6 py-10 sm:px-8 sm:py-14">
-					<main class="mx-auto max-w-2xl flex flex-col gap-8 ">
+			<body class="bg-[#F8FBF8] font-sans">
+				<div class="min-h-screen bg-[#F8FBF8] px-6 py-10 sm:px-8 sm:py-14">
+					<main class="mx-auto flex max-w-2xl flex-col gap-8">
 						<div class="flex items-center justify-between">
 							<h1 class="text-2xl font-semibold tracking-normal">
 								SQLite over email
@@ -105,8 +118,8 @@ website.get("/", (c) => {
 						</div>
 						<div class="flex flex-col gap-8">
 							<section class="flex flex-col">
-								<h2 class="text-lg font-medium mb-1">What is this?</h2>
-								<div class="text-sm hleading-[1.75] text-neutral-600">
+								<h2 class="mb-2 font-medium text-xl">What is this?</h2>
+								<div class="text-neutral-600 leading-[1.75]">
 									An experiment based on{" "}
 									<a
 										href="https://sqlmail.dev"
@@ -116,7 +129,7 @@ website.get("/", (c) => {
 									</a>
 									. Send an email Send an email containing SQLite blocks fenced
 									by <SqlBlock /> tags to:{" "}
-									<div class="rounded border border-black custom-box-shadow px-3 py-2 bg-white font-medium flex items-center justify-between my-4">
+									<div class="rounded-md border border-black custom-box-shadow px-3 py-2 bg-[#F8FBF8] font-medium flex items-center justify-between my-4">
 										<span class="select-all">sql@nicobaier.com</span>
 										<button
 											type="button"

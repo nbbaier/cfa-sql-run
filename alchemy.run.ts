@@ -10,6 +10,7 @@ import type { SqlRunDO } from "./src/do";
 
 const app = await alchemy("cfa-sql-run", {
 	stateStore: (scope) => new CloudflareStateStore(scope),
+	adopt: true,
 });
 
 const kv = await KVNamespace("kv", { title: `${app.name}-kv` });
@@ -20,6 +21,7 @@ const durableObject = DurableObjectNamespace<SqlRunDO>("durableObject", {
 });
 
 export const worker = await Worker("worker", {
+	name: `cfa-sql-run-worker-${app.stage}`,
 	entrypoint: "src/index.ts",
 	domains: ["sql.nicobaier.com"],
 	bindings: {

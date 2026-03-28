@@ -4,24 +4,25 @@
 	"scripts": {
 		"check": "tsc --noEmit",
 		"dev": "alchemy dev",
-		"deploy": "alchemy deploy --adopt",
+		"deploy": "alchemy deploy --adopt --stage prod",
 		"destroy": "alchemy destroy",
 		"postinstall": "vibe-rules install amp"
 	},
 	"dependencies": {
 		"@inboundemail/sdk": "^4.4.0",
 		"cloudflare": "^5.2.0",
-		"hono": "^4.9.2",
-		"inboundemail": "^0.19.0",
-		"nanoid": "^5.1.6",
-		"sql-formatter": "^15.6.12"
+		"hono": "^4.12.9",
+		"inboundemail": "^0.20.0",
+		"nanoid": "^5.1.7",
+		"sql-formatter": "^15.7.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.10",
-		"@cloudflare/workers-types": "^4.20251220.0",
-		"@types/node": "^24.3.0",
-		"alchemy": "0.82.0",
-		"typescript": "^5.9.3",
-		"vibe-rules": "^0.3.91"
+		"@biomejs/biome": "2.4.9",
+		"@cloudflare/workers-types": "^4.20260317.1",
+		"@types/node": "^25.5.0",
+		"alchemy": "0.90.1",
+		"typescript": "^6.0.2",
+		"vibe-rules": "^0.3.91",
+		"wrangler": "^4.78.0"
 	}
 }
