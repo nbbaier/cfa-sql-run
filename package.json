@@ -5,8 +5,7 @@
 		"check": "tsc --noEmit",
 		"dev": "alchemy dev",
 		"deploy": "alchemy deploy --adopt --stage prod",
-		"destroy": "alchemy destroy",
-		"postinstall": "vibe-rules install amp"
+		"destroy": "alchemy destroy"
 	},
 	"dependencies": {
 		"@inboundemail/sdk": "^4.4.0",
@@ -22,7 +21,6 @@
 		"@types/node": "^25.5.0",
 		"alchemy": "0.90.1",
 		"typescript": "^6.0.2",
-		"vibe-rules": "^0.3.91",
 		"wrangler": "^4.78.0"
 	}
 }
